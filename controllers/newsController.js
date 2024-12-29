@@ -74,7 +74,7 @@ const deleteAllNews = async (req, res) => {
     if (deletedNews.deletedCount === 0) {
       return res.status(400).json({ error: "Nenhuma notícia encontrada!" });
     }
-    return res.status(200).json({ msg: "Todas as notícias foram deletadas!" });
+    return res.status(200).json({ message: "Todas as notícias foram deletadas!" });
   } catch (err) {
     return res.status(400).json({ error: "Erro ao deletar notícias!" });
   }

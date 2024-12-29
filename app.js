@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "*",
+    origin: "https://crud-web-theta.vercel.app",
   })
 );
 
@@ -19,13 +19,14 @@ app.use(express.json()); // Middleware para permitir requisições JSON
 // Usar as rotas de notícias
 app.use(newsRoutes);
 
-const dbUser = "JoseDaniloS"
-const dbPassword = "danilojose1277"
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME;
 
 // Conectar ao MongoDB
 mongoose
   .connect(
-    `mongodb+srv://${dbUser}:${dbPassword}@users.cm01e.mongodb.net/Users?retryWrites=true&w=majority&appName=Users`
+    `mongodb+srv://${dbUser}:${dbPassword}@users.cm01e.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=${dbName}`
   )
   .then(() => {
     console.log("Conectado ao banco de dados!");

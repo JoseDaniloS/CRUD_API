@@ -19,8 +19,8 @@ app.use(express.json()); // Middleware para permitir requisições JSON
 // Usar as rotas de notícias
 app.use(newsRoutes);
 
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASS;
+const dbUser = "JoseDaniloS"
+const dbPassword = "danilojose1277"
 
 // Conectar ao MongoDB
 mongoose
